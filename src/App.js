@@ -48,33 +48,23 @@ function App() {
   const handleRandom = _addNewItem;
 
   const handleDelete = (id) => {
-    if (window.confirm('Delete?')) {
-      const newItems = items.filter((item) => item.id !== id);
-      setItems(newItems);
-      setCache(newItems);
-    }
+    const newItems = items.filter((item) => item.id !== id);
+    setItems(newItems);
+    setCache(newItems);
   };
 
-  const handleEdit = (item) => {
-    const prompt = window.prompt('Update to-do item', item.name);
-    if (prompt && prompt !== item.name) {
-      const newItems = items.map((i) =>
-        i.id === item.id
-          ? {
-              id: item.id,
-              name: prompt,
-            }
-          : i
-      );
-      setItems(newItems);
-      setCache(newItems);
-    }
+  const handleEdit = (updatedItem) => {
+    const newItems = items.map((i) =>
+      i.id === updatedItem.id ? updatedItem : i
+    );
+    setItems(newItems);
+    setCache(newItems);
   };
 
   return (
     <main className="App">
       <h1>My To-Do List</h1>
-      <form className="App-form" onSubmit={handleSubmit}>
+      <form className="App-form inline-form" onSubmit={handleSubmit}>
         <input maxLength="250" onChange={handleChange} value={input} />
         <button disabled={!input} type="submit">
           Add

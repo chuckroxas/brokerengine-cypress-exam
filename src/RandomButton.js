@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { RANDOM_API } from './constants';
-import './RandomButton.css';
 
 export default function RandomButton({ children, onSuccess }) {
   const [loading, setLoading] = useState(false);
@@ -18,7 +17,7 @@ export default function RandomButton({ children, onSuccess }) {
   return (
     <button
       aria-busy={loading}
-      className="RandomButton"
+      data-type="danger"
       onClick={handleClick}
       disabled={loading}
     >

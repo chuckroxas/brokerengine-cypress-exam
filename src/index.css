@@ -19,10 +19,16 @@ code {
     monospace;
 }
 
+input {
+  margin: 0;
+}
+
 button {
   background-color: var(--color-secondary);
   border: 0;
   color: white;
+  cursor: pointer;
+  margin: 0;
   transform: scale(1);
   transition: transform 0.15s;
 }
@@ -32,5 +38,21 @@ button:not([disabled]):hover {
 }
 
 button[disabled] {
+  background-color: var(--color-neutral);
   cursor: not-allowed !important;
+}
+
+button[data-type="danger"] {
+  background-color: var(--color-primary);
+}
+
+input {
+  border: 1px solid var(--color-secondary);
+  padding: 8px 12px;
+  width: 100%;
+  outline: 0;
+}
+
+.inline-form {
+  display: flex;
 }
