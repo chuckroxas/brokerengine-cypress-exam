@@ -1,0 +1,34 @@
+.App-list {
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.App-listItem {
+  margin-bottom: 12px;
+}
+
+.App-listItem > span {
+  hyphens: auto;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+
+.App-listItem > span:hover {
+  color: var(--color-secondary);
+  cursor: pointer;
+}
+
+.App-listItem > button {
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  height: 20px;
+  margin-left: 8px;
+  vertical-align: middle;
+  width: 20px;
+}
+
+.App-listEmpty {
+  margin-bottom: 48px;
+  margin-top: 48px;
+  text-align: center;
+}
