@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import useLocalStorage from './hooks/useLocalStorage';
 import TodoList from './TodoList';
+import RandomButton from './RandomButton';
 import './App.css';
 
 const LOCAL_STORAGE_KEY = 'be-cypress-todos';
@@ -27,20 +28,24 @@ function App() {
 
   // Form handlers
   const [input, setInput] = useState('');
-  const handleChange = (e) => setInput(e.target.value);
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const _addNewItem = (value) => {
     const newItems = [
       ...items,
       {
         id: Math.max(0, ...items.map((v) => v.id)) + 1,
-        name: input,
+        name: value,
       },
     ];
     setItems(newItems);
     setCache(newItems);
+  };
+  const handleChange = (e) => setInput(e.target.value);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    _addNewItem(input);
     setInput('');
   };
+  const handleRandom = _addNewItem;
 
   const handleDelete = (id) => {
     if (window.confirm('Delete?')) {
@@ -70,10 +75,11 @@ function App() {
     <main className="App">
       <h1>My To-Do List</h1>
       <form className="App-form" onSubmit={handleSubmit}>
-        <input maxLength="100" onChange={handleChange} value={input} />
+        <input maxLength="250" onChange={handleChange} value={input} />
         <button disabled={!input} type="submit">
           Add
         </button>
+        <RandomButton onSuccess={handleRandom} />
       </form>
 
       <TodoList items={items} onEdit={handleEdit} onDelete={handleDelete} />
