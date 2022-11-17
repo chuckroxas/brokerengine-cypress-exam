@@ -8,7 +8,8 @@
     "react-scripts": "5.0.0"
   },
   "devDependencies": {
-    "cypress": "^9.4.1",
+    "@cypress/xpath": "^2.0.3",
+    "cypress": "^9.7.0",
     "cypress-localstorage-commands": "^1.6.1",
     "eslint-plugin-cypress": "^2.12.1"
   },
@@ -36,5 +37,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This is a public repository used by **BrokerEngine** for evaluating candidates using Cypress.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/brokerengine/brokerengine-cypress-exam.git"
+  },
+  "author": "Charles Roxas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/brokerengine/brokerengine-cypress-exam/issues"
+  },
+  "homepage": "https://bitbucket.org/brokerengine/brokerengine-cypress-exam#readme"
 }
